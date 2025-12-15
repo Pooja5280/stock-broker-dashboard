@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeDesk Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+</head>
+<body>
+
+    <div id="login-overlay" class="overlay active">
+        <div class="login-box">
+            <h1 class="brand-title">StockBroker <span class="accent">.IO</span></h1>
+            
+            <form id="login-form">
+                <input type="email" id="email-input" placeholder="Enter Trader Email..." autocomplete="off" required>
+                <button type="submit">ACCESS TERMINAL</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="app-container" class="main-layout">
+        <nav class="top-bar">
+            <div class="logo">StockBroker<span class="highlight">PRO</span></div>
+            
+            <div class="wallet-strip">
+                <div class="stat-item">
+                    <span class="label">CASH BALANCE</span>
+                    <span class="value" id="cash-display">$10,000.00</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">NET WORTH</span>
+                    <span class="value" id="net-worth-display">$10,000.00</span>
+                </div>
+            </div>
+
+            <div class="user-profile">
+                <span id="user-id">guest</span>
+                <button id="logout-btn" class="btn-outline">EXIT</button>
+            </div>
+        </nav>
+
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-header">MARKETS</div>
+                <div id="watchlist-container"></div>
+            </aside>
+
+            <main class="workspace">
+                <section class="charts-section">
+                    <div id="charts-grid" class="grid-layout">
+                        <div id="empty-state" class="placeholder-box">
+                            Select assets from the sidebar to initialize live feeds.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bottom-deck">
+                    <div class="panel">
+                        <div class="panel-header"><span>CURRENT HOLDINGS</span></div>
+                        <div class="table-container">
+                            <table id="portfolio-table">
+                                <thead>
+                                    <tr>
+                                        <th>SYMBOL</th>
+                                        <th>QTY</th>
+                                        <th>AVG PRICE</th>
+                                        <th>MARKET VAL</th>
+                                        <th>P/L</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="portfolio-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-header"><span>RECENT ACTIVITY</span></div>
+                        <ul id="transaction-list" class="orders-list"></ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div id="trade-modal" class="overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modal-title">TRADE STOCK</h2>
+                <button onclick="closeModal()" class="close-btn">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div style="text-align:center; margin-bottom: 20px; font-size: 1.2rem; color: var(--accent);">
+                    Current Price: <span id="modal-price">---</span>
+                </div>
+
+                <div class="input-group">
+                    <label>Quantity</label>
+                    <input type="number" id="trade-qty" value="1" min="1">
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button id="btn-buy-confirm" class="btn-full" style="background-color: var(--accent); color: black;">BUY</button>
+                    <button id="btn-sell-confirm" class="btn-full" style="background-color: var(--danger); color: white;">SELL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

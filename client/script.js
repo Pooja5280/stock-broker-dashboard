@@ -1,5 +1,6 @@
 // CONFIGURATION
-const SERVER_URL = "http://localhost:3001";
+// ⬇️ THIS IS THE IMPORTANT CHANGE ⬇️
+const SERVER_URL = "https://stock-broker-dashboard-zqyr.onrender.com"; 
 const STOCKS = ['GOOG', 'TSLA', 'AMZN', 'META', 'NVDA'];
 const MAX_POINTS = 50;
 

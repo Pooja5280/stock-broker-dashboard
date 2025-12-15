@@ -1,10 +1,6 @@
 #  StockBrokerPro — Real-Time Trading Dashboard
 
-![Live Status](https://img.shields.io/badge/status-online-success?style=for-the-badge&color=2ea44f)
-![Tech Stack](https://img.shields.io/badge/stack-Node.js%20%7C%20Socket.io%20%7C%20Chart.js-blue?style=for-the-badge)
-![License](https://img.shields.io/badge/license-MIT-lightgrey?style=for-the-badge)
-
-** Live Demo:** [Launch Application](https://stock-broker-dashboard-1-f997.onrender.com)
+  Live Demo: [Launch Application](https://stock-broker-dashboard-1-f997.onrender.com)
 
 ---
 
@@ -12,7 +8,7 @@
 
 **StockBrokerPro** is a full-stack financial simulation platform designed to mimic the high-frequency nature of a real stock trading desk.
 
-Unlike traditional web apps that require page refreshes to see new data, this project utilizes **WebSockets** to push market data to the client in real-time. Users can watch stock prices fluctuate second-by-second, execute instant buy/sell orders, and track their portfolio performance dynamically.
+Unlike traditional web apps that require page refreshes to see new data, this project utilizes WebSockets to push market data to the client in real-time. Users can watch stock prices fluctuate second-by-second, execute instant buy/sell orders, and track their portfolio performance dynamically.
 
 ###  Key Objectives
 * **Simulate Real-Time Latency:** Handling asynchronous data streams using `Socket.io`.
@@ -23,14 +19,14 @@ Unlike traditional web apps that require page refreshes to see new data, this pr
 
 ##  System Architecture
 
-The application follows a **Client-Server** architecture decoupled for scalability:
+The application follows a Client-Server architecture decoupled for scalability:
 
 
 
 1.  **The Backend (Node.js/Express):**
     * Acts as the "Market Maker," generating random price fluctuations for stocks (GOOG, TSLA, AMZN, etc.) every 2 seconds.
     * Validates all trade logic (e.g., ensuring the user has sufficient funds).
-    * Broadcasts updates to all connected clients via a **WebSocket** channel.
+    * Broadcasts updates to all connected clients via a WebSocket channel.
 
 2.  **The Frontend (Vanilla JS/Chart.js):**
     * Maintains a persistent connection to the server.
@@ -59,7 +55,7 @@ The application follows a **Client-Server** architecture decoupled for scalabili
 
 | Area | Technology | Usage |
 | :--- | :--- | :--- |
-| **Frontend** | **HTML5, CSS3** | Structure and responsive dark-mode UI. |
+| **Frontend** | **HTML5, CSS3** | Structure and responsive UI. |
 | **Logic** | **JavaScript (ES6+)** | DOM manipulation and client-side logic. |
 | **Real-Time** | **Socket.io-client** | Bi-directional communication with the server. |
 | **Visualization** | **Chart.js** | Rendering live HTML5 Canvas charts. |
